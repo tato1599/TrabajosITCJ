@@ -4,9 +4,8 @@
  */
 package Paquetes;
 
-import java.awt.Dialog;
+
 import java.util.Scanner;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -40,9 +39,9 @@ public class AppPaquetes {
                     break;
                 case 2:
                     System.out.println("Ver Altas");
-                    for (int x = 0; x < i; x++) {
+                    for (int x = 0; x < Dia.length; x++) {
+                        if(Dia[x]!=null)
                         System.out.println(Dia[x]);
-
                     }
                     break;
                 case 3:
@@ -53,7 +52,7 @@ public class AppPaquetes {
                     break;
             }
 
-        } while (opcion < 3);
+        } while (opcion != 3);
 
     }
 
