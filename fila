@@ -1,0 +1,99 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package filas;
+
+/**
+ *
+ * @author 701
+ */
+public class Filas {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Fil nueva = new Fil(3);
+        //nueva.llenarDatos();
+        nueva.insertarDato(2);
+        System.out.println(nueva.toString());
+        nueva.insertarDato(5);
+        System.out.println(nueva.toString());
+        nueva.insertarDato(10);
+        
+        
+        System.out.println(nueva.toString());
+        
+       
+    }
+    
+}
+
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
+ */
+
+package filas;
+
+import java.util.Arrays;
+import java.util.Random;
+
+/**
+ *
+ * @author 701
+ */
+public class Fil {
+    private int frente;
+    private int end;
+    private int[] arr;
+    private int max;
+
+    public Fil(int tam) {
+        this.arr = new int[tam];
+        this.end = -1;
+        this.frente = -1;
+        this.max = tam;
+    }
+    
+    public void llenarDatos(){
+        Random r =new Random();
+        for (int i = 0; i < max; i++) {
+            this.arr[i] = r.nextInt(100);
+        }
+    }
+    
+    public void insertarDato(int dato){
+        if(this.end<this.max){
+            
+            this.end++;
+            arr[this.end]=dato;
+            if(this.end==1){
+                this.frente=1;
+            }
+        }else{
+            System.out.println("Desbordamiento");
+        }
+    }
+    
+    public void eliminarDato(){
+        int dato;
+        if(this.frente!=0){
+            dato=this.arr[this.frente];
+            
+        }else if(this.frente==this.end){
+            this.frente = 0;
+            this.end=0;
+        }else{
+        this.arr[this.frente+1] = 0;
+    }
+    }
+    
+    @Override
+    public String toString() {
+        return "Filas:" + "frente=" + this.frente + ", end=" + end + ", arr=" + Arrays.toString(arr) ;
+    }
+}
+    
